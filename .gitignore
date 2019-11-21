@@ -1,0 +1,12 @@
+# IDE
+.vscode
+
+# build
+.cache
+dist
+
+# tests
+coverage
+.nyc_output
+
+node_modules
