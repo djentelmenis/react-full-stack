@@ -1,15 +1,17 @@
 {
   "name": "simple-react-full-stack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Full stack web app starter with React, Node.js, Express and Webpack.",
   "main": "server/index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
-    "server": "nodemon --exec babel-node server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "prod": "npm run build && node server/index.js",
-    "test": "nyc mocha --require @babel/register --require ignore-styles --require ./test/bootstrap.js test/**/*.test.js || true"
+    "build-client": "webpack --config config/webpack.prod.js",
+    "build-server": "babel server/index.js -d dist",
+    "prod": "npm run build-client && npm run build-server && node dist/index.js",
+    "run-client": "webpack-dev-server --hot --config config/webpack.dev.js",
+    "run-server": "nodemon --exec babel-node server/index.js",
+    "dev": "concurrently \"npm run run-server\" \"npm run run-client\"",
+    "test": "nyc mocha --require @babel/register --require ignore-styles --require ./test/bootstrap.js test/**/*.test.js || true",
+    "clean": "rm -rf dist/*"
   },
   "author": "djentelmenis",
   "license": "MIT",
@@ -62,6 +64,7 @@
     "url-loader": "^2.3.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   }
 }

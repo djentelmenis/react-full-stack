@@ -1,14 +1,17 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
+const filename = 'bundle.js';
+const output = path.join(__dirname, '..', 'dist');
+const template = path.join(__dirname, '..', 'client', 'index.html');
+const favicon = path.join(__dirname, '..', 'client', 'public', 'favicon.ico');
 
 module.exports = {
-  entry: ['react-hot-loader/patch', './client/index.js'],
   output: {
-    path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js',
+    path: output,
+    filename,
   },
   module: {
     rules: [
@@ -46,18 +49,11 @@ module.exports = {
       'react-dom': '@hot-loader/react-dom',
     },
   },
-  devServer: {
-    port: 3000,
-    open: true,
-    proxy: {
-      '/api': 'http://localhost:8080',
-    },
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './client/index.html',
-      favicon: './client/public/favicon.ico',
+      template,
+      favicon,
     }),
   ],
 };

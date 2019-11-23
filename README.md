@@ -1,4 +1,4 @@
-# empty-project
+# React-Full-Stack
 
 Full stack web app starter with React, Node.js, Express and Webpack.
 
