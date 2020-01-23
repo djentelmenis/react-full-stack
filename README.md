@@ -2,6 +2,11 @@
 
 Full stack web app starter with React, Node.js, Express and Webpack.
 
+- React
+- Node
+- Express
+- Webpack
+
 ## Building and running on localhost
 
 Install dependencies:
@@ -10,13 +15,13 @@ Install dependencies:
 npm i
 ```
 
-Developement mode:
+Run development mode:
 
 ```sh
 npm run dev
 ```
 
-Production mode:
+Run production mode:
 
 ```sh
 npm run prod

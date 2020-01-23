@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
-import TestComponent from './components/testComponent/testCompoent';
+import TestComponent from './components/testComponent/testComponent';
 
 const App = () => {
   const [username, setUsername] = useState(null);

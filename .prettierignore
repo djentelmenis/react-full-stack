@@ -1,12 +1,12 @@
 # IDE
-/.vscode
+.vscode
 
 # build
-/.cache
-/dist
+.cache
+dist
 
 # tests
-/coverage
-/.nyc_output
+coverage
+.nyc_output
 
-/node_modules
+node_modules
