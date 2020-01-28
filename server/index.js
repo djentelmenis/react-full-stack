@@ -14,6 +14,6 @@ app.get('/api/getUsername', (req, res) =>
   res.send({ username: os.userInfo().username })
 );
 
-app.listen({ HOST, PORT }, () =>
+app.listen({ host: HOST, port: PORT }, () =>
   console.log(`Listening to ${HOST} on port ${PORT}!`)
 );
