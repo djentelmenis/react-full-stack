@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const filename = 'bundle.js';
-const output = path.join(__dirname, '..', 'dist');
+const output = path.join(__dirname, '..', 'dist', 'app');
 const template = path.join(__dirname, '..', 'client', 'index.html');
 const favicon = path.join(__dirname, '..', 'client', 'public', 'favicon.ico');
 

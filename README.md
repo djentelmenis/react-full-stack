@@ -19,12 +19,14 @@ Run development mode:
 
 ```sh
 npm run dev
+http://localhost:3000/
 ```
 
 Run production mode:
 
 ```sh
 npm run prod
+http://localhost:8080/
 ```
 
 Run tests:

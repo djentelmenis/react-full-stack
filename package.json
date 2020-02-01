@@ -1,6 +1,6 @@
 {
   "name": "react-full-stack",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Full stack web app starter with React, Node.js, Express and Webpack.",
   "main": "server/index.js",
   "scripts": {
