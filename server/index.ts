@@ -11,9 +11,7 @@ const app = express();
 
 app.use(express.static(STATIC_PATH));
 
-app.get('/api/getUsername', (req, res) =>
-  res.send({ username: os.userInfo().username })
-);
+app.get('/api/getUsername', (_req, res) => res.send({ username: os.userInfo().username }));
 
 app.listen({ host: HOST, port: PORT }, () =>
   // eslint-disable-next-line no-console

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import TestComponent from './components/testComponent/testComponent';
 
-const App = () => {
-  const [username, setUsername] = useState(null);
+const App: React.FC = (): JSX.Element => {
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     fetch('/api/getUsername')
@@ -13,11 +13,7 @@ const App = () => {
 
   return (
     <>
-      {username ? (
-        <h1>{`Hello ${username}`}</h1>
-      ) : (
-        <h1>Loading.. please wait!</h1>
-      )}
+      {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
       <TestComponent />
     </>
   );

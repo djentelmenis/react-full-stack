@@ -1,13 +1,25 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
 const merge = require('webpack-merge');
-const path = require('path');
 const common = require('./webpack.common');
-
-const entry = path.join(__dirname, '..', 'client', 'index.js');
 
 module.exports = merge(common, {
   mode: 'development',
-  entry: ['react-hot-loader/patch', entry],
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+          failOnError: false,
+          failOnWarning: false,
+        },
+      },
+    ],
+  },
   devtool: 'inline-source-map',
   resolve: {
     alias: {

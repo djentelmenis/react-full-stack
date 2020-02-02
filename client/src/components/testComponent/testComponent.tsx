@@ -3,10 +3,12 @@ import ReactImage from '../../../public/img/react.png';
 
 import './testComponent.scss';
 
-export default function TestComponent() {
+const TestComponent: React.FC = (): JSX.Element => {
   return (
     <>
       <img src={ReactImage} alt="react" />
     </>
   );
-}
+};
+
+export default TestComponent;

@@ -1,14 +1,18 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const entry = path.join(__dirname, '..', 'client', 'index.tsx');
 const filename = 'bundle.js';
 const output = path.join(__dirname, '..', 'dist', 'app');
 const template = path.join(__dirname, '..', 'client', 'index.html');
 const favicon = path.join(__dirname, '..', 'client', 'public', 'favicon.ico');
 
 module.exports = {
+  entry: ['react-hot-loader/patch', entry],
   output: {
     path: output,
     filename,
@@ -16,26 +20,13 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-          failOnError: false,
-          failOnWarning: false,
-        },
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -44,7 +35,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
     },
@@ -54,6 +45,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template,
       favicon,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
     }),
   ],
 };

@@ -1,7 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { describe, it } from 'mocha';
+import { mount } from 'enzyme';
+import { expect } from 'chai';
 
-import TestComponent from '../../../client/src/components/testComponent/testCompoent';
+import TestComponent from '../../../client/src/components/testComponent/testComponent';
 
 describe('TestComponent', () => {
   describe('TestComponent component tests', () => {

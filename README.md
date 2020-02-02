@@ -1,11 +1,15 @@
 # React-Full-Stack
 
-Full stack web app starter with React, Node.js, Express and Webpack.
+Full stack TypeScript web app starter with React, Express and Webpack.
 
 - React
-- Node
 - Express
+- Nodemon
 - Webpack
+- Babel
+- Mocha
+- ESLint
+- Prettier
 
 ## Building and running on localhost
 
